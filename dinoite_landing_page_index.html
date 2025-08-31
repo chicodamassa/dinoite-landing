@@ -1,0 +1,159 @@
+<!--
+Dinoite – Landing Page (index.html)
+-------------------------------------------------
+Como usar:
+1) Substitua APP_STORE_URL abaixo pelo link real da App Store quando estiver disponível.
+2) Opcional (iOS): troque APP_ID na meta apple-itunes-app para exibir o Smart App Banner no Safari iOS.
+3) Publique este arquivo via GitHub Pages.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Baixe o Dinoite</title>
+  <meta name="description" content="Dinoite – jogo educativo para rotinas diárias. Escolha sua loja e baixe agora." />
+  <meta name="theme-color" content="#4caf50" />
+  <!-- iOS Smart App Banner (troque APP_ID pelo id numérico da App Store quando tiver) -->
+  <meta name="apple-itunes-app" content="app-id=APP_ID" />
+  <!-- Open Graph para preview em redes sociais -->
+  <meta property="og:title" content="Baixe o Dinoite" />
+  <meta property="og:description" content="Jogo educativo: rotinas diárias com um dino fofinho. Toque para baixar." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <!-- <meta property="og:image" content="https://seu-dominio/og-image.png" /> -->
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121933;
+      --txt: #e9eef7;
+      --muted: #9fb0d1;
+      --brand: #66d17a; /* verde Dinoite */
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--txt);
+      background: radial-gradient(1200px 800px at 70% -10%, #203061 0%, var(--bg) 60%);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 520px;
+      background: linear-gradient(180deg, #18224a 0%, var(--card) 100%);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .logo {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      background: conic-gradient(from 180deg at 50% 50%, #8ce0a0, #66d17a, #39b66b, #66d17a, #8ce0a0);
+      display: grid; place-items: center;
+      color: #0b3b24; font-weight: 900; font-size: 28px;
+      user-select: none;
+    }
+    h1 { font-size: 28px; line-height: 1.2; margin: 0; }
+    p { color: var(--muted); margin: 6px 0 0; }
+
+    .btns { display: grid; gap: 12px; margin-top: 22px; }
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      text-decoration: none; color: #0a1510; font-weight: 700;
+      background: #9bf2ae; border: 2px solid #d2f8da;
+      padding: 14px 18px; border-radius: 14px;
+      transition: transform .06s ease, filter .1s ease, box-shadow .1s ease;
+      box-shadow: 0 6px 16px rgba(43, 218, 121, 0.2);
+    }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.03); }
+
+    .btn.store-ios { background: #cde3ff; border-color: #e6f0ff; box-shadow: 0 6px 16px rgba(64, 142, 255, .18); }
+    .btn.store-ios span { color: #0a2a66; }
+
+    .hint { font-size: 12px; color: var(--muted); margin-top: 10px; text-align: center; }
+
+    .foot {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      margin-top: 20px; font-size: 12px; color: var(--muted);
+    }
+    .badge {
+      font-size: 11px; padding: 6px 10px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .store-icon { width: 20px; height: 20px; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .logo { animation: float 3s ease-in-out infinite; }
+      @keyframes float { from { transform: translateY(0) } 50% { transform: translateY(-4px) } to { transform: translateY(0) } }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <header class="header">
+      <div class="logo" aria-hidden>🦖</div>
+      <div>
+        <h1>Baixe o <strong>Dinoite</strong></h1>
+        <p>Jogo educativo de rotinas diárias para crianças neurodivergentes.</p>
+      </div>
+    </header>
+
+    <nav class="btns" aria-label="Escolha sua loja">
+      <a class="btn store-android" id="btn-android" href="https://play.google.com/store/apps/details?id=com.FruitSalad.Dinoite" target="_blank" rel="noopener">
+        <!-- Android logo simples em SVG -->
+        <svg class="store-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.254 4.52 5.78 2.25a.75.75 0 1 1 1.26-.8l1.54 2.42A6.976 6.976 0 0 1 12 3c1.21 0 2.35.3 3.34.83l1.54-2.41a.75.75 0 1 1 1.26.8l-1.47 2.27A6.99 6.99 0 0 1 19 9v7.75A2.25 2.25 0 0 1 16.75 19h-.5v2.25a.75.75 0 0 1-1.5 0V19h-5.5v2.25a.75.75 0 0 1-1.5 0V19h-.5A2.25 2.25 0 0 1 5 16.75V9c0-1.7.63-3.25 1.676-4.48zM6.5 10.25v6.5c0 .414.336.75.75.75h9.5a.75.75 0 0 0 .75-.75v-6.5h-11zM8 8.25a.75.75 0 1 1 0-1.5h.01a.75.75 0 1 1 0 1.5H8zm8-.75a.75.75 0 1 1 0 1.5h-.01a.75.75 0 1 1 0-1.5h.01z" fill="currentColor"/></svg>
+        <span>Baixar no Google&nbsp;Play</span>
+      </a>
+      <a class="btn store-ios" id="btn-ios" href="APP_STORE_URL" target="_blank" rel="noopener">
+        <!-- Apple logo simples em SVG -->
+        <svg class="store-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.365 12.01c-.01-1.95 1.595-2.886 1.666-2.93-.91-1.33-2.33-1.51-2.83-1.53-1.2-.12-2.34.7-2.95.7-.61 0-1.55-.68-2.55-.66-1.31.02-2.52.76-3.2 1.92-1.37 2.28-.35 5.65.98 7.5.66.93 1.44 1.98 2.47 1.94.99-.04 1.36-.63 2.55-.63s1.53.63 2.56.61c1.06-.02 1.73-.94 2.38-1.88.75-1.06 1.06-2.09 1.07-2.14-.02-.01-2.06-.79-2.07-3.88zM14.3 5.97c.54-.66.91-1.57.81-2.48-.78.03-1.72.53-2.28 1.18-.5.58-.93 1.5-.82 2.39.87.07 1.75-.45 2.29-1.09z" fill="currentColor"/></svg>
+        <span>Baixar na App&nbsp;Store</span>
+      </a>
+    </nav>
+
+    <p class="hint" id="hint">Abra este link no seu celular para ir direto à loja.</p>
+
+    <footer class="foot">
+      <span class="badge" id="os-badge" aria-live="polite">Sistema: detectando…</span>
+      <span class="badge">© Dinoite</span>
+    </footer>
+  </main>
+
+  <script>
+    // Detecta o sistema apenas para mostrar um indicativo ao usuário
+    (function() {
+      var ua = navigator.userAgent || navigator.vendor || window.opera;
+      var badge = document.getElementById('os-badge');
+      var hint = document.getElementById('hint');
+      var isAndroid = /android/i.test(ua);
+      var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+      if (isAndroid) {
+        badge.textContent = 'Sistema: Android detectado';
+      } else if (isIOS) {
+        badge.textContent = 'Sistema: iOS detectado';
+      } else {
+        badge.textContent = 'Sistema: Desktop/Outro';
+        hint.textContent = 'Escolha uma das lojas acima.';
+      }
+
+      // Se quiser redirecionamento automático, descomente UMA das linhas abaixo:
+      // if (isAndroid) window.location.href = 'https://play.google.com/store/apps/details?id=com.FruitSalad.Dinoite';
+      // if (isIOS) window.location.href = 'APP_STORE_URL';
+    })();
+  </script>
+</body>
+</html>
